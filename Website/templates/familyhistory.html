@@ -1,0 +1,565 @@
+{% load static %}
+<html>
+
+<head>
+<title>{% block title %}Kare.AI{% endblock %}</title>
+</head>
+
+<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: hidden;
+			padding-top:20px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+        <link rel="stylesheet" type="text/css" href=" {% static '/login/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'login/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href=" {% static 'login/css/animate-custom.css' %}" />
+<script>
+    function validateform(){
+
+var    Alcoholism=document.family_history.Alcoholism.value;
+var    Allergies=document.family_history.Allergies.value;
+var    Anesthesia=document.family_history.Anesthesia.value;
+var    Anxiety=document.family_history.Anxiety.value;
+var    Arthritis=document.family_history.Arthritis.value;
+var    Asthma=document.family_history.Asthma.value;
+var    ADHD=document.family_history.ADHD.value;
+var    Birthdefects=document.family_history.Birthdefects.value;
+var    Bloodproblem=document.family_history.Bloodproblem.value;
+var    Jointproblems=document.family_history.Jointproblems.value;
+var    Breastdisease=document.family_history.Breastdisease.value;
+var    Cancer=document.family_history.Cancer.value;
+var    ChickenPox=document.family_history.ChickenPox.value;
+var    ColitisProblems=document.family_history.ColitisProblems.value;
+var    Depression=document.family_history.Depression.value;
+var    Diabetes=document.family_history.Diabetes.value;
+var    ENT=document.family_history.ENT.value;
+var    Eatingdisorders=document.family_history.Eatingdisorders.value;
+var    Eczema=document.family_history.Eczema.value;
+var Epilepsy=document.family_history.Epilepsy.value;
+var Fertility=document.family_history.Fertility.value;
+var Gallbladder=document.family_history.Gallbladder.value;
+var Gynecology=document.family_history.Gynecology.value;
+var HayFever=document.family_history.HayFever.value;
+var Headaches=document.family_history.Headaches.value;
+var HeartProblems=document.family_history.HeartProblems.value;
+var HeartAttack60=document.family_history.HeartAttack60.value;
+var HeartAttack=document.family_history.HeartAttack.value;
+var HeartMurmur=document.family_history.HeartMurmur.value;
+var Hepatitis=document.family_history.Hepatitis.value;
+var HighBloodPressure=document.family_history.HighBloodPressure.value;
+var HighCholestorol=document.family_history.HighCholestorol.value;
+
+
+
+if (Alcoholism==null || Alcoholism==""){
+  alert("Alcoholism can't be blank");
+  return false;
+}else  (Allergies==null || Allergies==""){
+  alert("can't be blank");
+  return false;
+  }
+}
+</script>
+</head>
+<body>
+<div class="sidenav">
+		<a href="/">Home</a>
+
+		<a href="/aboutus">About Us</a>
+	</div>
+<div id="webchat"></div>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      socketUrl: "https://ab3961deb890.ngrok.io",
+      socketPath: "/socket.io/",
+      title: "Care.io",
+      subtitle: "Your Personal Doctor",
+      params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+    })
+  </script>
+   <div class="container">
+            <!-- Codrops top bar -->
+            <header>
+                <h1>Kare<span>.AI</span></h1>
+				<nav class="codrops-demos">
+				</nav>
+            </header>
+       <section>
+
+       <form id="family_history" name="family_history" method="post">
+<select>
+	<option value="Mother">Mother</option>
+	<option value="Father">Father</option>
+	<option value="Sister">Sister</option>
+	<option value="Brother">Brother</option>
+	<option value="Daughter">Daughter</option>
+	<option value="Son">Son</option>
+	<option value="mMother">Mother's Mother</option>
+	<option value="fMother">Mother's Father</option>
+	<option value="mFather">Father's Mother</option>
+	<option value="fFather">Father's Father</option>
+	<option value="mSister">Mother's Sister</option>
+	<option value="mBrother">Mother's Brother</option>
+	<option value="fSister">Father's Sister</option>
+	<option value="fBrother">Father's Brother</option>
+	</select>
+
+       <table border="1" width="800" align="center">
+           <tbody>
+<tr> <td>Alcoholism :</td>
+ <td>       <label>
+  <input type="radio" name="Alcoholism" value="yes" id="Alcoholism_0">
+          Yes</label>
+        <label>
+  <input type="radio" name="Alcoholism" value="no" id="Alcoholism_1">
+    No</label>
+	</td>
+	</tr>
+
+<tr>
+     <td>  Allergies : </td>
+
+<td>	<label>
+      <input type="checkbox" name="Allergies" value="Beesting" id="Allergies_0">
+      Bee Sting</label><br>
+<label>
+      <input type="checkbox" name="Allergies" value="Poisonoak" id="Allergies_1">
+      Poison Oak</label><br>
+	<label>
+      <input type="checkbox" name="Allergies" value="food" id="Allergies_2">
+      Food<br>
+	</label>
+</td>
+</tr>
+
+
+           <tr>
+               <td>Anesthesia Problem:</td>
+	 <td> <label>
+
+		  <input type="radio" name="Anesthesia" value="yes" id="Anesthesia_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Anesthesia" value="no" id="Anesthesia_1">
+	    No</label>
+	  <br>
+	  <br></td>
+           </tr>
+
+
+           <tr><td>Anxiety/ Panic Attacks</td>
+	  <td><label>
+	    <input type="radio" name="Anxiety" value="yes" id="Anxiety_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Anxiety" value="no" id="Anxiety_1">
+	    No</label></td>
+	  <br>
+           </tr>
+
+
+<tr>
+    <td>Arthritis</td>
+      <td><label>
+
+	    <input type="radio" name="Arthritis" value="yes" id="Arthritis_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Arthritis" value="no" id="Arthritis_1">
+	    No</label></td>
+	  <br>
+</tr>
+<tr>
+    <td> Asthma</td>
+	<td><label>
+	    <input type="radio" name="Asthma" value="yes" id="Asthma_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Asthma" value="no" id="Asthma_1">
+	    No</label></td>
+	  <br>
+
+</tr>
+<tr>
+    <td>
+        Attention Deficit Disorders(ADD or ADHD)
+    </td><td><label>
+	    <input type="radio" name="ADHD" value="yes" id="ADHD_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="ADHD" value="no" id="ADHD_1">
+	    No</label></td>
+	  <br>
+
+</tr>
+<tr>
+   <td>Birth Defects</td>
+	<td>  <label>
+
+	    <input type="radio" name="Birthdefects" value="yes" id="Birthdefects_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Birthdefects" value="no" id="Birthdefects_1">
+          No</label></td>
+	  <br>
+</tr>
+
+           <tr>
+  <td>Blood Problem/ Clotting Disorder</td>
+               <td><label>
+	    <input type="radio" name="Bloodproblem" value="yes" id="Bloodproblem_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Bloodproblem" value="no" id="Bloodproblem_1">
+	    No</label>
+	  <br></td>
+
+           </tr>
+<tr>
+    <td>Bone / Joint Problems</td>
+  <td><label>
+	    <input type="radio" name="Jointproblems" value="yes" id="Jointproblems_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Jointproblems" value="no" id="Jointproblems_1">
+	    No</label></td>
+	  <br>
+</tr>
+<tr>
+    <td>Breast Disease / Lumps(Benign)</td>
+    <td><label>
+	    <input type="radio" name="Breastdisease" value="yes" id="Breastdisease_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Breastdisease" value="no" id="Breastdisease_1">
+	    No</label>
+  </td><br>
+
+</tr>
+<tr>
+    <td>Cancer</td>
+<td>    <label>
+	      <input type="checkbox" name="Cancer" value="Breast" id="Cancer_0">
+	      Breast</label><br>
+	<label>
+	      <input type="checkbox" name="Cancer" value="Colon" id="Cancer_1">
+	      Colon</label><label><br>
+	      <input type="checkbox" name="Cancer" value="Melanoma" id="Cancer_2">
+	      Melanoma</label><br>
+	<label>
+	      <input type="checkbox" name="Cancer" value="Ovary" id="Cancer_3">
+	      Ovary</label><br>
+<label>
+	      <input type="checkbox" name="Cancer" value="Prostrate" id="Cancer_4">
+	      Prostrate</label></td>
+</tr>
+<tr>
+    <td>Chicken Pox</td>
+	 <td> <label>
+	    <input type="radio" name="Chicken Pox" value="yes" id="ChickenPox_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Chicken Pox" value="no" id="ChickenPox_1">
+	    No</label>
+	  <br>
+    </td>
+</tr>
+<tr>
+    <td>Colitis or Colon Problems</td>
+  <label>
+	  <td>  <input type="radio" name="ColitisProblems" value="yes" id="ColitisProblems_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="ColitisProblems" value="no" id="ColitisProblems_1">
+	    No</label>
+	  <br></td>
+</tr>
+<tr>
+    <td>Depression( of a serious nature)</td>
+<td>   <label>
+	    <input type="radio" name="Depression" value="yes" id="Depression_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="Depression" value="no" id="Depression_1">
+	    No</label>
+	  <br> </td>
+</tr>
+<tr>
+
+	  <td>Diabetes</td>
+    <td><label>
+	    <input type="checkbox" name="Diabetes" value="type1" id="Diabetes_0">
+	    Type 1 (Childhood Onset)</label><br>
+
+	  <label>
+	    <input type="checkbox" name="Diabetes" value="type2" id="Diabetes_1">
+	    Type 2 (Adult Onset)</label><br></td>
+	  <br>
+</tr>
+<tr>
+<td>	  Ear/ Nose/ Throat Problem</td>
+<td>	  <label>  <input type="radio" name="ENT" value="yes" id="ENT_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="ENT" value="no" id="ENT_1">
+	    No</label>
+	  <br></td>
+</tr>
+<tr>
+    <td>Eating Disorders</td>
+    	  <td><label>
+
+	    <input type="radio" name="Eatingdisorders" value="yes" id="Eatingdisorders_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Eatingdisorders" value="no" id="Eatingdisorders_1">
+	    No</label>
+	  <br>
+    </td>
+</tr>
+<tr>
+<td>Eczema</td>
+ <td>
+	  <label>Eczema
+
+	    <input type="radio" name="Eczema" value="yes" id="Eczema_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Eczema" value="no" id="Eczema_1">
+	    No</label>
+</td></tr>
+<tr>
+    <td>Epilepsy (Convultions or Seizures)</td>
+    <td>
+	  <label>
+
+	    <input type="radio" name="Epilepsy" value="yes" id="Epilepsy_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Epilepsy" value="no" id="Epilepsy_1">
+	    No</label>
+	  <br>
+</td>
+</tr>
+<tr>
+    <td>Fertility(Conception) Problems</td>
+    <td>
+
+	  <label>
+
+	    <input type="radio" name="Fertility" value="yes" id="Fertility_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Fertility" value="no" id="Fertility_1">
+	    No</label>
+	  <br>
+</td>
+</tr>
+<tr>
+    <td>Gallbladder or Gallstones</td>
+    <td>
+	  <label>
+
+	    <input type="radio" name="Gallbladder" value="yes" id="Gallbladder_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Gallbladder" value="no" id="Gallbladder_1">
+	    No</label>
+	  <br>
+</td>
+</tr>
+<tr>
+    <td>Gynecology Problems</td>
+    <td><label>
+
+	    <input type="radio" name="Gynecology" value="yes" id="Gynecology_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="Gynecology" value="no" id="Gynecology_1">
+	    No</label>
+	  <br></td>
+</tr>
+ <tr>
+     <td>Hay Fever</td>
+     <td> <label>
+
+	    <input type="radio" name="HayFever" value="yes" id="HayFever_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="HayFever" value="no" id="HayFever_1">
+	    No</label>
+	  <br></td>
+
+ </tr>
+<tr>
+    <td>Headaches</td>
+    <td> <label>
+	    <input type="checkbox" name="Headaches" value="Migranes" id="Headaches_0">
+	    Migranes</label>
+
+	  <label>
+	    <input type="checkbox" name="Headaches" value="Frequent" id="Headaches_1">
+	    Frequent</label>
+	  <br>
+</td>
+
+</tr>
+<tr>
+    <td>Heart Problems:</td>
+    <td>  <label>
+		    <input type="radio" name="HeartProblems" value="yes" id="HeartProblems_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="HeartProblems" value="no" id="HeartProblems_1">
+	    No</label>
+	  <br></td>
+</tr>
+<tr>
+    <td>Heart Attack / Over age 60</td>
+    <td>
+	  <label>
+
+	    <input type="radio" name="HeartAttack60" value="yes" id="HeartAttack60_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="HeartAttack60" value="no" id="HeartAttack60_1">
+	    No</label>
+	  <br></td>
+</tr>
+           <tr>
+               <td>Heart Attack / Under age 60</td>
+               <td>
+
+	  <label>
+
+	    <input type="radio" name="HeartAttack" value="yes" id="HeartAttack_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="HeartAttack" value="no" id="HeartAttack_1">
+	    No</label>
+	  <br></td>
+           </tr>
+<tr>
+    <td>Heart Murmur</td>
+    <td>  <label>
+
+	    <input type="radio" name="HeartMurmur" value="yes" id="HeartMurmur_0">
+	    Yes</label>
+	  <label>
+	    <input type="radio" name="HeartMurmur" value="no" id="HeartMurmur_1">
+	    No</label>
+	  <br>
+</td>
+</tr>
+<tr>
+    <td>Hepatitis</td>
+    <td>
+	 <label>Hepatitis
+	     <input type="checkbox" name="Hepatitis" value="a" id="Hepatitis_0">
+	    A</label><br>
+
+	  <label>
+	    <input type="checkbox" name="Hepatitis" value="b" id="Hepatitis_1">
+	    B</label><br>
+	  <label>
+	    <input type="checkbox" name="Hepatitis" value="c" id="Hepatitis_2">
+	    C</label><br></td>
+
+
+</tr>
+           <tr>
+               <td>High Blood Pressure</td>
+               <td>	  <label>
+	    <input type="radio" name="HighBloodPressure" value="yes" id="HighBloodPressure_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="HighBloodPressure" value="no" id="HighBloodPressure_1">
+	    No</label>
+	  <br>
+               </td>
+           </tr>
+           <tr>
+               <td>High Cholestorol</td>
+               <td>  <label>
+	    <input type="radio" name="HighCholestorol" value="yes" id="HighCholestorol_0">
+	    Yes</label>
+
+	  <label>
+	    <input type="radio" name="HighCholestorol" value="no" id="HighCholestorol_1">
+	    No</label>
+	  <br></td>
+           </tr><br>
+<br>
+<br>
+           <tr>
+               <td align="center"><br><input type="submit" name="submit" id="submit" value="Submit" onsubmit="return validateform()">
+</td>
+         <td align="center"><br><input type="reset" name="reset" id="reset" value="Reset">	</td>
+           </tr>
+           </tbody>
+       </form>
+       </table>
+
+
+
+
+	</center>
+
+
+<br>
+<br>
+<br>
+       <br><br>
+
+
+	{% block content %}
+	{% endblock %}
+       </section>
+   </div>
+</body>
+</html>

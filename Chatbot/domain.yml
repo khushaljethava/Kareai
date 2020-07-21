@@ -1,0 +1,210 @@
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- choice_category
+- name_entry
+- age_entry
+entities:
+- question1
+- question2
+- question3
+- question4
+- question5
+- question6
+- question7
+- question8
+- question9
+- question10
+- category_questions
+- full_name
+- age
+slots:
+  full_name:
+    type: text
+  age:
+    type: text
+  category_questions:
+    type: unfeaturized
+  question1:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question10:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question2:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question3:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question4:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question5:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question6:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question7:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question8:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+  question9:
+    type: categorical
+    values:
+    - yes
+    - no
+    - __other__
+responses:
+  utter_greet:
+  - text: Hey! How are you?
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+
+  utter_ask_name:
+  - text: What is your name?
+
+  utter_ask_age:
+  - text: What is your age?
+
+  utter_quesion1:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: 'Do you need glasses to read? '
+  utter_quesion2:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Do you need glasses to see things at a distance?
+  utter_quesion3:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: 'Has your eyesight often blacked out completely? '
+  utter_quesion4:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Do your eyes continually blink or water?
+  utter_quesion5:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Do you often have bad pains in your eyes?
+  utter_quesion6:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Are your eyes often red or inflamed?
+  utter_quesion7:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Are you hard of hearing?
+  utter_quesion8:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Have you ever had a bad running ear?
+  utter_quesion9:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Do you have constant noises in your ears?
+  utter_quesion10:
+  - buttons:
+    - payload: /question1{"question1":"yes"}
+      title: Yes
+    - payload: /question1{"question1":"no"}
+      title: No
+    text: Do you have to clear your throat frequently?
+  utter_slots_values:
+  - text: 'Your answer is : {question1}'
+actions:
+- utter_ask_question1
+- utter_greet
+- utter_cheer_up
+- utter_did_that_help
+- utter_happy
+- utter_goodbye
+- utter_iamabot
+- utter_slots_values
+- action_ask_question
+- utter_quesion1
+- utter_quesion2
+- utter_quesion3
+- utter_quesion4
+- utter_quesion5
+- utter_quesion6
+- utter_quesion7
+- utter_quesion8
+- utter_quesion9
+- utter_quesion10
+- action_ask_age
+- action_ask_name

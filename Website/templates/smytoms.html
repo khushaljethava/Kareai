@@ -1,0 +1,160 @@
+{% load static %}
+<html>
+
+<head>
+<title>{% block title %}Kare.AI{% endblock %}</title>
+</head>
+
+<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: hidden;
+			padding-top:20px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+        <link rel="stylesheet" type="text/css" href=" {% static '/login/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'login/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href=" {% static 'login/css/animate-custom.css' %}" />
+
+</head>
+<body>
+<div class="sidenav">
+		<a href="/">Home</a>
+		<a href="/aboutus">About Us</a>
+	</div>
+<div id="webchat"></div>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      socketUrl: "https://ab3961deb890.ngrok.io",
+      socketPath: "/socket.io/",
+      title: "Care.io",
+      subtitle: "Your Personal Doctor",
+      params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+    })
+  </script>
+   <div class="container">
+            <!-- Codrops top bar -->
+            <header>
+                <h1>Kare<span>.AI</span></h1>
+				<nav class="codrops-demos">
+				</nav>
+            </header>
+       <section>
+<form>
+	<table width="400" border="1" cellpadding="1" align="center">
+  <tbody>
+    <tr>
+      <td>&nbsp;Sudden dizziness, loss of balance or coordination.</td>
+      <td>&nbsp;  <p>
+	    <label>
+	      <input type="radio" name="balance" value="yes" id="balance_0">
+	      Yes</label>
+	    <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>&nbsp;Sudden trouble seeing out of one or both eyes.</td>
+      <td>&nbsp;		<p>
+	    <label>
+	      <input type="radio" name="eyes" value="yes" id="eyes_0">
+	      Yes</label>
+	    <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>&nbsp;First, check for facial weakness. An uneven smile or weakness on one side could mean trouble.</td>
+      <td>&nbsp;		<p>
+	    <label>
+	      <input type="radio" name="face" value="yes" id="face_0">
+	      Yes</label>
+	    <br>
+      </p></td>
+    </tr>
+    <tr>
+      <td>&nbsp;Next, check for arm weakness. Inability to raise both arms evenly could be another sign.</td>
+      <td>&nbsp;
+
+
+
+		<p>
+	    <label>
+	      <input type="radio" name="arm" value="yes" id="arm_0">
+	      Yes</label>
+	    <br>
+      </p>
+		</td>
+    </tr>
+    <tr>
+      <td>&nbsp;Check for impaired speech. Slurred speech or difficulty repeating simple phrases could mean a stroke.</td>
+      <td>&nbsp;
+		<p>
+	    <label>
+	      <input type="radio" name="speech" value="yes" id="speech_0">
+	      Yes</label>
+	    <br>
+      </p>
+		</td>
+    </tr>
+  </tbody>
+</table>
+</form>
+<br>
+           <br>
+	<button type="button">Call</button>
+<br>
+           <br>
+           <br>
+
+           <b>More ways to spot a stroke:</b><br>
+           <br>
+	<ol style=" ol { list-style-type: lower-roman; }">
+	<li >Sudden weakness or numbness of face, arm or leg, especially on one side.
+		</li>
+	<li>Sudden confusion, trouble speaking or understanding.
+		</li>
+		<li>Sudden trouble seeing in one or both eyes.
+		</li>
+		<li>Sudden trouble walking, dizziness, loss of balance or coordination.
+		</li>
+		<li>Sudden, severe headache with no known cause.
+		</li>
+	</ol>
+
+           <h3>Remember, every minute counts. Do not wait. Call 108.</h3>
+
+       </section>
+            </div>
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

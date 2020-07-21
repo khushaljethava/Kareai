@@ -1,0 +1,1114 @@
+{% load static %}
+<html>
+
+<head>
+<title>{% block title %}Kare.AI{% endblock %}</title>
+</head>
+
+<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: hidden;
+			padding-top:20px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+        <link rel="stylesheet" type="text/css" href=" {% static '/login/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'login/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href=" {% static 'login/css/animate-custom.css' %}" />
+
+</head>
+<body>
+<div class="sidenav">
+		<a href="/">Home</a>
+		<a href="/aboutus">About Us</a>
+	</div>
+<div id="webchat"></div>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      socketUrl: "https://ab3961deb890.ngrok.io",
+      socketPath: "/socket.io/",
+      title: "Care.io",
+      subtitle: "Your Personal Doctor",
+      params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+    })
+  </script>
+   <div class="container">
+            <!-- Codrops top bar -->
+            <header>
+                <h1>Kare<span>.AI</span></h1>
+				<nav class="codrops-demos">
+				</nav>
+            </header>
+       <section>
+
+
+<form>
+
+		<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+<table class="tg" align="center">
+<thead>
+  <tr>
+    <th class="tg-0lax" rowspan="3">	  <label>
+	    <input type="radio" name="Race" value="Hispanic" id="Race_0"><br>
+	    Hispanic or Latino Origin<br> (Includes Mexican,
+		Cuban,<br> Puerto rican, Latin American<br> and Spanish</label></th>
+    <th class="tg-0lax">  <label>
+	    <input type="radio" name="Race" value="Not Hispanic" id="Race_1">
+	    Not Hispanic</label>
+	  <br></th>
+    <th class="tg-0lax"><label>
+	    <input type="radio" name="Race" value="African American" id="Race_2">
+	    African American</label>
+	  <br></th>
+
+  </tr>
+  <tr>
+    <td class="tg-0lax">  <label>
+	    <input type="radio" name="Race" value="Caucasian (White)" id="Race_3">
+	    Caucasian (White)</label>
+	  <br></td>
+    <td class="tg-0lax">  <label>
+	    <input type="radio" name="Race" value="Asian or Pacific Islander" id="Race_4">
+	    Asian or Pacific Islander</label>
+	  <br></td>
+
+  </tr>
+  <tr>
+    <td class="tg-0lax">  <label>
+	    <input type="radio" name="Race" value="Native American, Eskimo or Aleutian" id="Race_5">
+	    Native American, Eskimo or Aleutian</label>
+	  <br></td>
+    <td class="tg-0lax">
+	  <label>
+	    <input type="radio" name="Race" value="Other" id="Race_6">
+	    Other</label>
+	  <br></td>
+
+  </tr>
+</thead>
+</table>
+
+	<table width="1000" border="1" cellpadding="1" align="center">
+  <tbody>
+    <tr>
+      <td>&nbsp;Please Mark One Box For Each Item</td>
+      <td>&nbsp;No</td>
+      <td>&nbsp;Yes Under a year</td>
+      <td>&nbsp;Yes Over a year</td>
+      <td>&nbsp;No Answer/ Invalid</td>
+    </tr>
+    <tr>
+      <td>&nbsp; <b>Smoking</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Smoking" value="no" id="Smoking_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Smoking" value="Yes Under a Year" id="Smoking_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Smoking" value="Yes Over a year" id="Smoking_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Smoking" value="Invalid" id="Smoking_3">
+	  </label>
+	  <br></td>
+    </tr>
+<tr>
+      <td>&nbsp; <b>Alcohol</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Alcohol" value="no" id="Alcohol_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Alcohol" value="Yes Under a Week" id="Alcohol_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Alcohol" value="Yes Under a Month" id="Alcohol_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Alcohol" value="Invalid" id="Alcohol_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Diabetes</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Diabetes" value="no" id="Diabetes_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Diabetes" value="Yes Under a Year" id="Diabetes_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Diabetes" value="Yes Over a year" id="Diabetes_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Diabetes" value="Invalid" id="Diabetes_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Hear Condition</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Hear Condition" value="no" id="HearCondition_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Hear Condition" value="Yes Under a Year" id="HearCondition_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Hear Condition" value="Yes Over a year" id="HearCondition_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Hear Condition" value="Invalid" id="HearCondition_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>High Blood pressure</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bloodpressure" value="no" id="Bloodpressure_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bloodpressure" value="Yes Under a Year" id="Bloodpressure_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Bloodpressure" value="Yes Over a year" id="Bloodpressure_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bloodpressure" value="Invalid" id="Bloodpressure_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Chest Pain</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="ChestPain" value="no" id="ChestPain_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="ChestPain" value="Yes Under a Year" id="ChestPain_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="ChestPain" value="Yes Over a year" id="ChestPain_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="ChestPain" value="Invalid" id="ChestPain_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Stroke</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Stroke" value="no" id="Stroke_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Stroke" value="Yes Under a Year" id="Stroke_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Stroke" value="Yes Over a year" id="Stroke_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Stroke" value="Invalid" id="Stroke_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Kidney Condition</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Kidney" value="no" id="Kidney_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Kidney" value="Yes Under a Year" id="Kidney_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Kidney" value="Yes Over a year" id="Kidney_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Kidney" value="Invalid" id="Kidney_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Blood Clot / DVT</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="BloodClot" value="no" id="BloodClot_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="BloodClot" value="Yes Under a Year" id="BloodClot_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="BloodClot" value="Yes Over a year" id="BloodClot_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="BloodClot" value="Invalid" id="BloodClot_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+
+
+	  <tr>
+      <td>&nbsp; <b>Metal implants / Pacemaker</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pacemaker" value="no" id="Pacemaker_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pacemaker" value="Yes Under a Year" id="Pacemaker_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Pacemaker" value="Yes Over a year" id="Pacemaker_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pacemaker" value="Invalid" id="Pacemaker_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+	  <tr>
+      <td>&nbsp; <b>Breathing Difficulties / Asthma</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Asthma" value="no" id="Asthma_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Asthma" value="Yes Under a Year" id="Asthma_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Asthma" value="Yes Over a year" id="Asthma_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Asthma" value="Invalid" id="Asthma_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	  	  <tr>
+      <td>&nbsp; <b>Cancer</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Cancer" value="no" id="Cancer_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Cancer" value="Yes Under a Year" id="Cancer_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Cancer" value="Yes Over a year" id="Cancer_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Cancer" value="Invalid" id="Cancer_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+	    	  <tr>
+      <td>&nbsp; <b>Difficulty Swallowing</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="DifficultySwallowing" value="no" id="DifficultySwallowing_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="DifficultySwallowing" value="Yes Under a Year" id="DifficultySwallowing_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="DifficultySwallowing" value="Yes Over a year" id="DifficultySwallowing_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Difficulty Swallowing" value="Invalid" id="DifficultySwallowing_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	    	  <tr>
+      <td>&nbsp; <b>Circulation/ Vascular Problems</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Circulation" value="no" id="Circulation_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Circulation" value="Yes Under a Year" id="Circulation_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Circulation" value="Yes Over a year" id="Circulation_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Circulation" value="Invalid" id="Circulation_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	    	  <tr>
+      <td>&nbsp; <b>Peripheral Neuropathy</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="PeripheralNeuropathy" value="no" id="PeripheralNeuropathy_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="PeripheralNeuropathy" value="Yes Under a Year" id="PeripheralNeuropathy_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="PeripheralNeuropathy" value="Yes Over a year" id="PeripheralNeuropathy_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="PeripheralNeuropathy" value="Invalid" id="PeripheralNeuropathy_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	  	  <tr>
+      <td>&nbsp; <b>Unexplaianed Weightloss</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Weightloss" value="no" id="Weightloss_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Weightloss" value="Yes Under a Year" id="Weightloss_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Weightloss" value="Yes Over a year" id="Weightloss_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Weightloss" value="Invalid" id="Weightloss_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	  	  <tr>
+      <td>&nbsp; <b>Double Vision</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="DoubleVision" value="no" id="DoubleVision_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="DoubleVision" value="Yes Under a Year" id="DoubleVision_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="DoubleVision" value="Yes Over a year" id="DoubleVision_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="DoubleVision" value="Invalid" id="DoubleVision_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+	  	  <tr>
+      <td>&nbsp; <b>Night Sweats/ Night Pain</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="NightPain" value="no" id="NightPain_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="NightPain" value="Yes Under a Year" id="NightPain_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="NightPain" value="Yes Over a year" id="NightPain_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="NightPain" value="Invalid" id="NightPain_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	   	  <tr>
+      <td>&nbsp; <b>Infection Dissease</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="InfectionDissease" value="no" id="InfectionDissease_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="InfectionDissease" value="Yes Under a Year" id="InfectionDissease_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="InfectionDissease" value="Yes Over a year" id="InfectionDissease_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="InfectionDissease" value="Invalid" id="InfectionDissease_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	   <tr>
+      <td>&nbsp; <b>Neurologic Condition( MS/ Parkinson's)</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="no" id="Neurologic_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="Yes Under a Year" id="Neurologic_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Neurologic" value="Yes Over a year" id="Neurologic_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="Invalid" id="Neurologic_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+	   <tr>
+      <td>&nbsp; <b>Neurologic Condition( MS/ Parkinson's)</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="no" id="Neurologic_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="Yes Under a Year" id="Neurologic_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Neurologic" value="Yes Over a year" id="Neurologic_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Neurologic" value="Invalid" id="Neurologic_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+	     <tr>
+      <td>&nbsp; <b>Skin Disease</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SkinDisease" value="no" id="SkinDisease_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SkinDisease" value="Yes Under a Year" id="SkinDisease_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="SkinDisease" value="Yes Over a year" id="SkinDisease_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SkinDisease" value="Invalid" id="SkinDisease_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	       <tr>
+      <td>&nbsp; <b>Spinal Cord Injury</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SpinalCord" value="no" id="SpinalCord_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SpinalCord" value="Yes Under a Year" id="SpinalCord_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="SpinalCord" value="Yes Over a year" id="SpinalCord_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SpinalCord" value="Invalid" id="SpinalCord_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+
+	     <tr>
+      <td>&nbsp; <b>Degenerative Joint Disease</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="JointDisease" value="no" id="JointDisease_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="JointDisease" value="Yes Under a Year" id="JointDisease_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="JointDisease" value="Yes Over a year" id="JointDisease_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="JointDisease" value="Invalid" id="JointDisease_3">
+	  </label>
+	  <br></td>
+    </tr>
+
+
+	       <tr>
+      <td>&nbsp; <b>Sexual Dysfunction</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SexualDysfunction" value="no" id="SexualDysfunction_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SexualDysfunction" value="Yes Under a Year" id="SexualDysfunction_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="SexualDysfunction" value="Yes Over a year" id="SexualDysfunction_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="SexualDysfunction" value="Invalid" id="SexualDysfunction_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	    <tr>
+      <td>&nbsp; <b>Bladder/ bowel problems</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bladder" value="no" id="Bladder_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bladder" value="Yes Under a Year" id="Bladder_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Bladder" value="Yes Over a year" id="Bladder_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Bladder" value="Invalid" id="Bladder_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	     <tr>
+      <td>&nbsp; <b>Groin Numbness</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="GroinNumbness" value="no" id="GroinNumbness_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="GroinNumbness" value="Yes Under a Year" id="GroinNumbness_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="GroinNumbness" value="Yes Over a year" id="GroinNumbness_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="GroinNumbness" value="Invalid" id="GroinNumbness_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	  	     <tr>
+      <td>&nbsp; <b>Arthritis </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Arthritis" value="no" id="Arthritis_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Arthritis" value="Yes Under a Year" id="Arthritis_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Arthritis" value="Yes Over a year" id="Arthritis_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Arthritis" value="Invalid" id="Arthritis_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	   	     <tr>
+      <td>&nbsp; <b>Osteoporosis </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Osteoporosis" value="no" id="Osteoporosis_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Osteoporosis" value="Yes Under a Year" id="Osteoporosis_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Osteoporosis" value="Yes Over a year" id="Osteoporosis_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Osteoporosis" value="Invalid" id="Osteoporosis_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	   	     <tr>
+      <td>&nbsp; <b>Phsychological Problems </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Phsychological" value="no" id="Phsychological_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Phsychological" value="Yes Under a Year" id="Phsychological_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Phsychological" value="Yes Over a year" id="Phsychological_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Phsychological" value="Invalid" id="Phsychological_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	     	     <tr>
+      <td>&nbsp; <b>Seizures </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Seizures" value="no" id="Seizures_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Seizures" value="Yes Under a Year" id="Seizures_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Seizures" value="Yes Over a year" id="Seizures_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Seizures" value="Invalid" id="Seizures_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	     	     <tr>
+      <td>&nbsp; <b>Dizziness/ Faintness </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Dizziness" value="no" id="Dizziness_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Dizziness" value="Yes Under a Year" id="Dizziness_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Dizziness" value="Yes Over a year" id="Dizziness_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Dizziness" value="Invalid" id="Dizziness_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+
+	  	     <tr>
+      <td>&nbsp; <b>Ringing in Ears </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Ringing" value="no" id="Ringing_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Ringing" value="Yes Under a Year" id="Ringing_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Ringing" value="Yes Over a year" id="Ringing_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Ringing" value="Invalid" id="Ringing_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	       <tr>
+      <td>&nbsp; <b>Allergy to Latex( Gloves) </b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Latex" value="no" id="Latex_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Latex" value="Yes Under a Year" id="Latex_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Latex" value="Yes Over a year" id="Latex_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Latex" value="Invalid" id="Latex_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+
+	       <tr>
+      <td>&nbsp; <b>Head Injury</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="HeadInjury" value="no" id="HeadInjury_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="HeadInjury" value="Yes Under a Year" id="HeadInjury_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="HeadInjury" value="Yes Over a year" id="HeadInjury_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="HeadInjury" value="Invalid" id="HeadInjury_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+	  	       <tr>
+      <td>&nbsp; <b>Obesity</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Obesity" value="no" id="Obesity_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Obesity" value="Yes Under a Year" id="Obesity_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Obesity" value="Yes Over a year" id="Obesity_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Obesity" value="Invalid" id="Obesity_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	  	  	       <tr>
+      <td>&nbsp; <b>Chronic Pain/ Fibro/ Headaches</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Chronic" value="no" id="Chronic_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Chronic" value="Yes Under a Year" id="Chronic_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Chronic" value="Yes Over a year" id="Chronic_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Chronic" value="Invalid" id="Chronic_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	  	  	  	       <tr>
+      <td>&nbsp; <b>Fractures</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fractures" value="no" id="Fractures_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fractures" value="Yes Under a Year" id="Fractures_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Fractures" value="Yes Over a year" id="Fractures_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fractures" value="Invalid" id="Fractures_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	  	  	  	       <tr>
+      <td>&nbsp; <b>Infection Dissease</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Infection" value="no" id="Infection_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Infection" value="Yes Under a Year" id="Infection_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Infection" value="Yes Over a year" id="Infection_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Infection" value="Invalid" id="Infection_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	    	       <tr>
+      <td>&nbsp; <b>Fever/ Nausea</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fever" value="no" id="Fever_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fever" value="Yes Under a Year" id="Fever_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Fever" value="Yes Over a year" id="Fever_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Fever" value="Invalid" id="Fever_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+	         <tr>
+      <td>&nbsp; <b>Are you Pregnant</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pregnant" value="no" id="Pregnant_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pregnant" value="Yes Under a Year" id="Pregnant_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Pregnant" value="Yes Over a year" id="Pregnant_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Pregnant" value="Invalid" id="Pregnant_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+	          <tr>
+      <td>&nbsp; <b>Lower Extremety</b>
+	  <label></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Extremety" value="no" id="Extremety_0">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Extremety" value="Yes Under a Year" id="Extremety_1">
+	  </label>
+	  <br></td>
+      <td>&nbsp; <label>
+	    <input type="radio" name="Extremety" value="Yes Over a year" id="Extremety_2">
+	    </label>
+	  <br></td>
+      <td>&nbsp;<label>
+	    <input type="radio" name="Extremety" value="Invalid" id="Extremety_3">
+	  </label>
+	  <br></td>
+	  </tr>
+
+
+
+
+
+
+  </form>
+
+<table align="center">
+<tr>
+    <td align="center"><br>
+        <br><input type="submit"><br>
+
+    </td>
+    <td><br>
+        <br>                      <input type="reset"></td>
+</tr>
+
+</table>
+
+
+
+	<br>
+
+
+
+
+
+
+
+</section>
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

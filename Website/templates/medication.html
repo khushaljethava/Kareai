@@ -1,0 +1,79 @@
+{% load static %}
+<html>
+
+<head>
+<title>{% block title %}Kare.AI{% endblock %}</title>
+</head>
+
+<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: hidden;
+			padding-top:20px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+        <link rel="stylesheet" type="text/css" href=" {% static '/login/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'login/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href=" {% static 'login/css/animate-custom.css' %}" />
+
+</head>
+<body>
+<div class="sidenav">
+		<a href="/">Home</a>
+
+		<a href="/aboutus">About Us</a>
+	</div>
+<div id="webchat"></div>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      socketUrl: "https://ab3961deb890.ngrok.io",
+      socketPath: "/socket.io/",
+      title: "Care.io",
+      subtitle: "Your Personal Doctor",
+      params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+    })
+  </script>
+   <div class="container">
+            <!-- Codrops top bar -->
+            <header>
+                <h1>Kare<span>.AI</span></h1>
+				<nav class="codrops-demos">
+				</nav>
+            </header>
+       <section>
+
+
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>

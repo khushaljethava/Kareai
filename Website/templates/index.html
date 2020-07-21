@@ -1,0 +1,107 @@
+{% load static %}
+<html>
+
+<head>
+<title>{% block title %}Kare.AI{% endblock %}</title>
+</head>
+
+<style type="text/css">
+		.sidenav {
+			height:100%;
+			width:160px;
+			position: fixed;
+			z-index:1;
+			top:0;
+			left:0;
+			background-color:#111;
+			overflow-x: hidden;
+			padding-top:20px;
+		}
+
+		.sidenav a {
+			padding:6px 8px 6px 16px;
+			text-decoration: none;
+			font-size:25px;
+			color: #818181;
+			display:block;
+		}
+
+		.sidenav a:hover{
+			color:#f1f1f1;
+		}
+
+		.main{
+			margin-left:160px;
+			padding: 0px 10px;
+		}
+
+	</style>
+
+        <link rel="stylesheet" type="text/css" href=" {% static '/login/css/demo.css' %}" />
+        <link rel="stylesheet" type="text/css" href=" {% static 'login/css/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href=" {% static 'login/css/animate-custom.css' %}" />
+
+</head>
+<body>
+<div class="sidenav">
+		<a href="/">Home</a>
+		<a href="/aboutus">About Us</a>
+	</div>
+<div id="webchat"></div>
+  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat/lib/index.min.js"></script>
+  <script>
+    WebChat.default.init({
+      selector: "#webchat",
+      initPayload: "/get_started",
+      customData: {"language": "en"}, // arbitrary custom data. Stay minimal as this will be added to the socket
+      socketUrl: "https://ab3961deb890.ngrok.io",
+      socketPath: "/socket.io/",
+      title: "Kare.AI",
+      subtitle: "Your Personal Doctor",
+      params: {"storage": "session"} // can be set to "local"  or "session". details in storage section.
+    })
+  </script>
+   <div class="container">
+            <!-- Codrops top bar -->
+            <header>
+                <h1>Kare<span>.AI</span></h1>
+				<nav class="codrops-demos">
+				</nav>
+            </header>
+       <section>
+
+<center><table width="378" height="298.6" border="1">
+  <tbody>
+    <tr>
+      <td> <a href="/labresult"> <input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/Lab Report1.png' %}"><center> <h4>Lab Result</h4></center></a></td>
+      <td><a href="/familyhistory"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/family history2.png' %}"><center> <h4>Family History&nbsp;</h4>
+      </center></a></td>
+      <td><a href="/retinascan"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/retina2.png' %}"><center> <h4>Retina Scan&nbsp;</h4>
+      </center></a></td>
+    </tr>
+    <tr>
+      <td><a href="/medication"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{%  static 'media/images/Medication copy.png' %}"><center> <h4>Medication&nbsp;</h4>
+      </center></a></td>
+      <td><a href="/preexistingcondition"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/preexisting1.png' %}"><center> <h4>Preexisting Condition&nbsp;</h4>
+      </center></a></td>
+      <td><a href="/videoassessment"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{%  static 'media/images/vidio.png' %}"><center> <h4>Video Assessment&nbsp;</h4>
+      </center></a></td>
+    </tr>
+    <tr>
+      <td><a href="/specchrecognition"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{%  static 'media/images/speech1.png' %}"><center> <h4>Speech Recognition&nbsp;</h4>
+      </center></a></td>
+      <td><a href="/diabetesprediction"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/diabetes1.png' %}"><center> <h4>Diabetes Prediction&nbsp;</h4>
+      </center></a></td>
+      <td><a href="/symptoms"><input type="image" name="imageField" width="150" height="150" id="imageField" src="{% static 'media/images/symptoms.png' %}"><center> <h4>Symptom Checker&nbsp;</h4>
+      </center></a></td>
+    </tr>
+  </tbody>
+</table>
+		</center>
+       </section>
+            </div>
+
+	{% block content %}
+	{% endblock %}
+</body>
+</html>
